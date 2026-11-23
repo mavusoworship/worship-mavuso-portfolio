@@ -31,7 +31,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; }
 a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; }
-body, h1, h2, h3, .stat .n, .award .yr { font-variant-numeric: lining-nums; }
+body, h1, h2, h3, .award .yr { font-variant-numeric: lining-nums; }
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 56px; }
 .mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .gold { color: var(--gold); }
@@ -47,9 +47,7 @@ body, h1, h2, h3, .stat .n, .award .yr { font-variant-numeric: lining-nums; }
 
 /* Nav */
 nav.top { position: absolute; top: 0; left: 0; right: 0; z-index: 5; }
-nav.top .wrap { display: flex; justify-content: space-between; align-items: center; height: 88px; }
-.logo { font-weight: 700; letter-spacing: .25em; font-size: 13px; text-decoration: none; }
-.logo span { color: var(--gold); }
+nav.top .wrap { display: flex; justify-content: flex-end; align-items: center; height: 88px; }
 nav.top ul { list-style: none; display: flex; gap: 34px; }
 nav.top ul a { text-decoration: none; font-size: 12.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
 nav.top ul a:hover { color: var(--ink); }
@@ -64,19 +62,15 @@ nav.top ul a:hover { color: var(--ink); }
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(90deg, var(--bg) 0%, rgba(10,10,10,0) 38%), linear-gradient(0deg, var(--bg) 0%, rgba(10,10,10,0) 22%);
 }
-.cover-inner { position: relative; z-index: 2; padding-top: 200px; padding-bottom: 150px; }
-.cover h1 { font-size: clamp(64px, 10vw, 136px); line-height: .92; letter-spacing: -.02em; margin: 22px 0 30px; }
+.cover-inner { position: relative; z-index: 2; padding-top: 200px; padding-bottom: 140px; }
+.cover h1 { font-size: clamp(64px, 10vw, 136px); line-height: .92; letter-spacing: -.02em; margin: 0 0 30px; }
 .cover h1 em { color: var(--gold); }
 .cover .lede { font-size: 19px; color: var(--muted); max-width: 440px; margin: 30px 0 36px; line-height: 1.6; }
 .cover .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.contents { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; }
-.contents .wrap { display: flex; gap: 48px; border-top: 1px solid var(--line); padding-top: 20px; padding-bottom: 30px; flex-wrap: wrap; }
-.contents a { font-family: var(--font-display); font-size: 17px; text-decoration: none; display: flex; gap: 12px; align-items: baseline; }
-.contents a:hover { color: var(--gold); }
 
 /* Sections */
 section.chapter { padding: 110px 0; border-bottom: 1px solid var(--line); }
-.chapter-head { display: grid; grid-template-columns: 220px 1fr; gap: 40px; margin-bottom: 56px; align-items: end; }
+.chapter-head { margin-bottom: 56px; }
 .chapter-head .num { font-family: var(--font-display); font-size: 64px; line-height: 1; color: var(--gold); }
 .chapter-head h2 { font-size: clamp(36px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -.01em; }
 
@@ -93,29 +87,22 @@ section.chapter { padding: 110px 0; border-bottom: 1px solid var(--line); }
 /* Areas of interest */
 .areas-intro { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
 .areas-intro p { color: var(--muted); max-width: 60ch; }
-.key { display: inline-flex; align-items: center; gap: 10px; }
-.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); display: inline-block; flex: none; }
 .areas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 32px; border-top: 1px solid var(--line); padding-top: 32px; }
 .area h3 { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 .area ul { list-style: none; display: grid; gap: 9px; }
-.area li { font-family: var(--font-display); font-size: 16.5px; line-height: 1.35; padding-left: 17px; position: relative; color: var(--muted); }
-.area li.xp { color: var(--ink); }
-.area li.xp::before { content: ""; position: absolute; left: 0; top: .5em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+.area li { font-family: var(--font-display); font-size: 16.5px; line-height: 1.35; color: var(--ink); }
 @media (max-width: 1000px) { .areas { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 760px) { .areas { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 420px) { .areas { grid-template-columns: 1fr; } }
 
 /* Work */
-.feature { display: grid; grid-template-columns: 1.3fr 1fr; border: 1px solid var(--line); margin-bottom: 0; }
+.feature { border: 1px solid var(--line); margin-bottom: 0; }
 .feature .txt { padding: 48px; }
 .feature h3 { font-size: clamp(40px, 5vw, 64px); line-height: 1; margin: 14px 0 20px; }
-.feature p { color: var(--muted); max-width: 52ch; margin-bottom: 18px; }
-.feature ul.points { list-style: none; margin: 0 0 30px; display: grid; gap: 8px; }
+.feature p { color: var(--muted); max-width: 68ch; margin-bottom: 18px; }
+.feature ul.points { list-style: none; max-width: 72ch; margin: 0 0 30px; display: grid; gap: 8px; }
 .feature ul.points li { padding-left: 22px; position: relative; }
 .feature ul.points li::before { content: ""; position: absolute; left: 0; top: .8em; width: 12px; height: 1px; background: var(--gold); }
-.feature .numbers { background: var(--surface); border-left: 1px solid var(--line); padding: 48px; display: grid; align-content: center; gap: 30px; }
-.stat .n { font-family: var(--font-display); font-size: 56px; line-height: 1; color: var(--gold); font-variant-numeric: tabular-nums; }
-.stat .l { color: var(--muted); font-size: 14.5px; margin-top: 6px; }
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .tags li { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); border: 1px solid #3A3018; padding: 5px 10px; }
 
@@ -142,24 +129,17 @@ section.chapter { padding: 110px 0; border-bottom: 1px solid var(--line); }
 .role h3 { font-size: 26px; margin-bottom: 4px; }
 .role .org { color: var(--gold); font-weight: 500; margin-bottom: 10px; }
 .role p { color: var(--muted); max-width: 62ch; }
+.awards-list .role .org { margin-bottom: 0; }
 
 /* Awards */
-.awards { list-style: none; border-top: 1px solid var(--line); }
-.awards li { display: grid; grid-template-columns: 120px 1fr 240px 150px; gap: 32px; align-items: baseline; padding: 24px 0; border-bottom: 1px solid var(--line); }
-.awards .yr { font-family: var(--font-display); font-size: 30px; color: var(--gold); line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
-.awards .t { font-family: var(--font-display); font-size: 22px; line-height: 1.3; }
-.awards .by { text-align: right; }
 
 /* Contact */
-.contact { padding: 130px 0 90px; }
-.contact h2 { font-size: clamp(56px, 9vw, 120px); line-height: .95; letter-spacing: -.02em; margin: 20px 0 36px; }
-.contact h2 em { color: var(--gold); }
-.contact p { color: var(--muted); max-width: 52ch; font-size: 18px; margin-bottom: 40px; }
-.links { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
-.links a { padding: 28px 0; text-decoration: none; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--line); }
-.links a + a { padding-left: 32px; border-left: 1px solid var(--line); }
-.links .v { font-family: var(--font-display); font-size: clamp(17px, 2vw, 22px); word-break: break-word; }
-.links a:hover .v { color: var(--gold); }
+.contact-sec { border-bottom: 0; }
+.contact-c { text-align: center; }
+.contact-c h2 { font-size: clamp(36px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -.01em; margin-bottom: 20px; }
+.contact-intro { color: var(--muted); max-width: 56ch; margin: 0 auto 34px; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+.contact-email { margin-top: 26px; color: var(--muted); font-size: 14.5px; }
 footer .wrap { display: flex; justify-content: space-between; padding-top: 30px; padding-bottom: 40px; gap: 16px; flex-wrap: wrap; }
 
 /* Responsive */
@@ -167,7 +147,7 @@ footer .wrap { display: flex; justify-content: space-between; padding-top: 30px;
   .wrap { padding: 0 32px; }
   .about { grid-template-columns: 1fr 300px; }
   .about .side { grid-column: 1 / -1; grid-template-columns: repeat(4, 1fr); order: 3; }
-  .chapter-head, .entry, .role { grid-template-columns: 140px 1fr; }
+  .entry, .role { grid-template-columns: 140px 1fr; }
   .entry .go { grid-column: 2; justify-self: start; }
   .skills { grid-template-columns: repeat(3, 1fr); }
 }
@@ -177,27 +157,15 @@ footer .wrap { display: flex; justify-content: space-between; padding-top: 30px;
   .cover .portrait { position: relative; width: 100%; height: 520px; }
   .cover .portrait::after { background: linear-gradient(0deg, var(--bg) 0%, rgba(10,10,10,0) 45%); }
   .cover-inner { padding-top: 0; margin-top: -120px; padding-bottom: 40px; }
-  .contents { position: static; }
-  .contents .wrap { gap: 18px 28px; }
-  section.chapter { padding: 72px 0; }
-  .chapter-head, .entry, .role, .about { grid-template-columns: 1fr; gap: 14px; }
+      section.chapter { padding: 72px 0; }
+  .entry, .role, .about { grid-template-columns: 1fr; gap: 14px; }
   .chapter-head { margin-bottom: 36px; }
   .chapter-head .num { font-size: 44px; }
   .about .side { grid-template-columns: 1fr 1fr; }
   .entry .go { grid-column: 1; }
   .feature { grid-template-columns: 1fr; }
-  .feature .txt, .feature .numbers { padding: 30px 24px; }
-  .feature .numbers { border-left: 0; border-top: 1px solid var(--line); grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .stat .n { font-size: 38px; }
-  .skills { grid-template-columns: 1fr 1fr; }
-  .awards li { grid-template-columns: 70px 1fr; gap: 6px 18px; }
-  .awards .by { grid-column: 2; text-align: left; }
-  .awards .cert { grid-column: 2; justify-self: start; }
-  .awards .yr { font-size: 22px; }
-  .awards .t { font-size: 19px; }
-  .links { grid-template-columns: 1fr; }
-  .links a + a { padding-left: 0; border-left: 0; }
-}
+  .feature .txt,       .skills { grid-template-columns: 1fr 1fr; }
+          }
 @media (max-width: 420px) {
   .wrap { padding: 0 20px; }
 }
@@ -212,17 +180,15 @@ dialog.viewer::backdrop { background: rgba(0,0,0,.82); }
 .viewer button { background: none; border: 1px solid var(--line); color: var(--ink); font: inherit; font-size: 14px; padding: 6px 14px; cursor: pointer; }
 .viewer button:hover, .viewer button:focus-visible { border-color: var(--gold); color: var(--gold); outline: none; }
 .viewer img { width: 100%; height: auto; max-height: 80vh; object-fit: contain; background: #fff; }
-.cv-btn { margin-top: 36px; }
 </style>
 </head>
 <body>
 
 <nav class="top" aria-label="Main">
   <div class="wrap">
-    <a class="logo" href="#top">W <span>·</span> M</a>
     <ul>
       <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#work">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -232,20 +198,12 @@ dialog.viewer::backdrop { background: rgba(0,0,0,.82); }
 <header class="cover" id="top">
   <div class="portrait" role="img" aria-label="Worship Mavuso smiling in a black shirt"></div>
   <div class="wrap cover-inner">
-    <div class="mono gold">Portfolio — Edition 2026</div>
     <h1>Worship<br><em>Mavuso</em></h1>
     <div class="rule"></div>
     <p class="lede">High-achieving BCom Information Systems graduate from the University of Fort Hare.</p>
     <div class="actions">
-      <a class="btn" href="#work">See the work</a>
+      <a class="btn" href="#work">View projects</a>
       <a class="btn line" href="#contact">Get in touch</a>
-    </div>
-  </div>
-  <div class="contents">
-    <div class="wrap">
-      <a href="#sovereign"><span class="mono">01</span> Sovereign 10</a>
-      <a href="#forte"><span class="mono">02</span> Forte Auto Repair</a>
-      <a href="#digit"><span class="mono">03</span> Digit Detective</a>
     </div>
   </div>
 </header>
@@ -253,7 +211,7 @@ dialog.viewer::backdrop { background: rgba(0,0,0,.82); }
 <main>
   <section class="chapter" id="about">
     <div class="wrap">
-      <div class="chapter-head"><div class="num">I.</div><h2>About</h2></div>
+      <div class="chapter-head"><h2>About</h2></div>
       <div class="about">
         <div class="side">
           <div><div class="mono">Qualification</div><div class="v">BCom Information Systems</div></div>
@@ -279,20 +237,20 @@ dialog.viewer::backdrop { background: rgba(0,0,0,.82); }
 
   <section class="chapter" id="interests">
     <div class="wrap">
-      <div class="chapter-head"><div class="num">II.</div><h2>Areas of interest</h2></div>
+      <div class="chapter-head"><h2>Areas of interest</h2></div>
       <div class="areas-intro">
         <p>Information Systems is a broad field. These are the areas where I'd love to grow and contribute.</p>
-        <p class="key mono"><span class="dot" aria-hidden="true"></span> Hands-on experience</p>
+        
       </div>
       <div class="areas">
-        <div class="area"><h3>Business &amp; Analysis</h3><ul><li class="xp">Business Analysis</li><li class="xp">Systems Analysis &amp; Design</li><li class="xp">Business Process Improvement &amp; Automation</li><li>Digital Transformation</li><li>IT Consulting</li><li>ERP Systems</li></ul></div><div class="area"><h3>Development</h3><ul><li class="xp">Software &amp; Application Development</li><li class="xp">Web Development</li><li class="xp">Mobile App Development</li><li class="xp">Software Testing &amp; Quality Assurance</li></ul></div><div class="area"><h3>Data</h3><ul><li class="xp">Data Analysis</li><li>Business Intelligence</li><li class="xp">Database Design</li></ul></div><div class="area"><h3>Management</h3><ul><li class="xp">IT Project Management</li><li>Agile &amp; Scrum</li><li>Product Management</li></ul></div><div class="area"><h3>Infrastructure &amp; Security</h3><ul><li>Cybersecurity</li><li>Cloud Computing</li><li>Network &amp; Systems Administration</li><li>IT Support &amp; Service Desk</li></ul></div><div class="area"><h3>Governance</h3><ul><li>IT Audit, Risk &amp; Compliance</li></ul></div><div class="area"><h3>Design &amp; People</h3><ul><li class="xp">UX &amp; UI Design</li><li class="xp">IT Training &amp; User Support</li></ul></div>
+        <div class="area"><h3>Business &amp; Analysis</h3><ul><li>Business Analysis</li><li>Systems Analysis &amp; Design</li><li>Business Process Improvement &amp; Automation</li><li>Digital Transformation</li><li>IT Consulting</li><li>ERP Systems</li></ul></div><div class="area"><h3>Development</h3><ul><li>Software &amp; Application Development</li><li>Web Development</li><li>Mobile App Development</li><li>Software Testing &amp; Quality Assurance</li></ul></div><div class="area"><h3>Data</h3><ul><li>Data Analysis</li><li>Business Intelligence</li><li>Database Design</li></ul></div><div class="area"><h3>Management</h3><ul><li>IT Project Management</li><li>Agile &amp; Scrum</li><li>Product Management</li></ul></div><div class="area"><h3>Infrastructure &amp; Security</h3><ul><li>Cybersecurity</li><li>Cloud Computing</li><li>Network &amp; Systems Administration</li><li>IT Support &amp; Service Desk</li></ul></div><div class="area"><h3>Governance</h3><ul><li>IT Audit, Risk &amp; Compliance</li></ul></div><div class="area"><h3>Design &amp; People</h3><ul><li>UX &amp; UI Design</li><li>IT Training &amp; User Support</li></ul></div>
       </div>
     </div>
   </section>
 
   <section class="chapter" id="work">
     <div class="wrap">
-      <div class="chapter-head"><div class="num">III.</div><h2>Selected work</h2></div>
+      <div class="chapter-head"><h2>Projects</h2></div>
 
       <article class="feature" id="sovereign">
         <div class="txt">
@@ -305,11 +263,6 @@ dialog.viewer::backdrop { background: rgba(0,0,0,.82); }
             <li>Secured with password hashing and server-side checks on every move, backed by 180 automated tests and deployed on Render.</li>
           </ul>
           <a class="btn" href="https://sovereign10.onrender.com">Play it live ↗</a>
-        </div>
-        <div class="numbers" aria-label="Project in numbers">
-          <div class="stat"><div class="n">180</div><div class="l">automated unit tests</div></div>
-          <div class="stat"><div class="n">10</div><div class="l">nations in every game</div></div>
-          <div class="stat"><div class="n">Live</div><div class="l">deployed on Render</div></div>
         </div>
       </article>
 
@@ -352,7 +305,7 @@ dialog.viewer::backdrop { background: rgba(0,0,0,.82); }
 
   <section class="chapter" id="skills">
     <div class="wrap">
-      <div class="chapter-head"><div class="num">IV.</div><h2>Skills</h2></div>
+      <div class="chapter-head"><h2>Skills</h2></div>
       <div class="skills">
         <div><h3>Software Development</h3><ul><li>C#</li><li>ASP.NET</li><li>.NET MAUI</li><li>XAML</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Visual Basic</li><li>Web, mobile &amp; application development</li><li>API integration</li></ul></div>
         <div><h3>Systems &amp; Business Analysis</h3><ul><li>Systems analysis &amp; design</li><li>Requirements gathering</li><li>Business process mapping</li><li>Business analysis</li><li>UML</li><li>Technical documentation</li></ul></div>
@@ -367,7 +320,7 @@ dialog.viewer::backdrop { background: rgba(0,0,0,.82); }
 
   <section class="chapter" id="experience">
     <div class="wrap">
-      <div class="chapter-head"><div class="num">V.</div><h2>Experience &amp; leadership</h2></div>
+      <div class="chapter-head"><h2>Experience &amp; leadership</h2></div>
       <ol class="roles">
         <li class="role">
           <div class="mono">2024 — 2026</div>
@@ -392,27 +345,46 @@ dialog.viewer::backdrop { background: rgba(0,0,0,.82); }
 
   <section class="chapter" id="awards">
     <div class="wrap">
-      <div class="chapter-head"><div class="num">VI.</div><h2>Awards</h2></div>
-      <ul class="awards">
-        <li><span class="yr">2025</span><span class="t">Second-Best Performing Student</span><span class="by mono">Information Systems Dept.</span><a class="cert" href="certificates/cert-2nd-position.jpg" data-cert="certificates/cert-2nd-position.jpg" data-title="Outstanding Academic Performance: 2nd Position">View certificate</a></li>
-        <li><span class="yr">2025</span><span class="t">Outstanding Commitment &amp; Collaborative Leadership</span><span class="by mono">Wellness Leaders Programme</span><a class="cert" href="certificates/cert-wellness-leadership.jpg" data-cert="certificates/cert-wellness-leadership.jpg" data-title="Certificate of Appreciation: Wellness Leaders Programme">View certificate</a></li>
-        <li><span class="yr">2025</span><span class="t">Database Top Achiever</span><span class="by mono">University of Fort Hare</span><span></span></li>
-        <li><span class="yr">2023</span><span class="t">Computer Literacy Top Achiever</span><span class="by mono">University of Fort Hare</span><a class="cert" href="certificates/cert-computer-literacy.jpg" data-cert="certificates/cert-computer-literacy.jpg" data-title="Academic Award: Computer Literacy, 1st Place">View certificate</a></li>
-        <li><span class="yr">2023</span><span class="t">Most Attendance &amp; Punctual Peer of the Year</span><span class="by mono">PESDA</span><a class="cert" href="certificates/cert-pesda-punctual.jpg" data-cert="certificates/cert-pesda-punctual.jpg" data-title="Peer Education Programme: Most Punctual Peer Educator">View certificate</a></li>
-      </ul>
+      <div class="chapter-head"><h2>Awards</h2></div>
+      <ol class="roles awards-list">
+        <li class="role">
+          <div class="mono">2025</div>
+          <div><h3>Second-Best Performing Student</h3><div class="org">Information Systems Department, University of Fort Hare</div>
+          <a class="cert" href="certificates/cert-2nd-position.jpg" data-cert="certificates/cert-2nd-position.jpg" data-title="Outstanding Academic Performance: 2nd Position">View certificate</a></div>
+        </li>
+        <li class="role">
+          <div class="mono">2025</div>
+          <div><h3>Outstanding Commitment &amp; Collaborative Leadership</h3><div class="org">Wellness Leaders Programme, Student Counselling Unit</div>
+          <a class="cert" href="certificates/cert-wellness-leadership.jpg" data-cert="certificates/cert-wellness-leadership.jpg" data-title="Certificate of Appreciation: Wellness Leaders Programme">View certificate</a></div>
+        </li>
+        <li class="role">
+          <div class="mono">2023</div>
+          <div><h3>Computer Literacy Top Achiever</h3><div class="org">University of Fort Hare</div>
+          <a class="cert" href="certificates/cert-computer-literacy.jpg" data-cert="certificates/cert-computer-literacy.jpg" data-title="Academic Award: Computer Literacy, 1st Place">View certificate</a></div>
+        </li>
+        <li class="role">
+          <div class="mono">2023</div>
+          <div><h3>Most Attendance &amp; Punctual Peer of the Year</h3><div class="org">Peer Education Programme (PESDA), University of Fort Hare</div>
+          <a class="cert" href="certificates/cert-pesda-punctual.jpg" data-cert="certificates/cert-pesda-punctual.jpg" data-title="Peer Education Programme: Most Punctual Peer Educator">View certificate</a></div>
+        </li>
+        <li class="role">
+          <div class="mono">2025</div>
+          <div><h3>Database Top Achiever</h3><div class="org">University of Fort Hare</div></div>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <div class="mono gold">VII. — Contact</div>
-      <h2>Get in <em>touch.</em></h2>
-      <p>I'm open to graduate programmes, internships and entry-level opportunities. Feel free to reach out by email or connect with me on LinkedIn.</p>
-      <div class="links">
-        <a href="mailto:mavusoworship527@gmail.com"><span><span class="mono">Email</span><br><span class="v">mavusoworship527@gmail.com</span></span><span class="gold">↗</span></a>
-        <a href="https://www.linkedin.com/in/worship-mavuso"><span><span class="mono">LinkedIn</span><br><span class="v">linkedin.com/in/worship-mavuso</span></span><span class="gold">↗</span></a>
+  <section class="chapter contact-sec" id="contact">
+    <div class="wrap contact-c">
+      <h2>Get in touch</h2>
+      <p class="contact-intro">I'm open to graduate programmes, internships and entry-level opportunities. Feel free to reach out by email or connect with me on LinkedIn.</p>
+      <div class="contact-actions">
+        <a class="btn" href="mailto:mavusoworship527@gmail.com">Email me</a>
+        <a class="btn line" href="https://www.linkedin.com/in/worship-mavuso">LinkedIn ↗</a>
+        <a class="btn line" href="Worship-Mavuso-CV.pdf" download>Download my CV ↓</a>
       </div>
-      <a class="btn cv-btn" href="Worship-Mavuso-CV.pdf" download>Download my CV ↓</a>
+      <p class="contact-email">mavusoworship527@gmail.com</p>
     </div>
   </section>
 </main>
