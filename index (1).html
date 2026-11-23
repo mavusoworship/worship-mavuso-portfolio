@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worship Mavuso</title>
+<meta name="description" content="High-achieving BCom Information Systems graduate from the University of Fort Hare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: magazine portfolio. Full-height cover with portrait on the right, then numbered editorial sections on a 1200px grid */
+:root {
+  --bg: #0A0A0A;
+  --surface: #141414;
+  --ink: #F5F5F5;
+  --muted: #9A9A9A;
+  --line: #262626;
+  --gold: #E2B33C;
+  --gold-soft: #1F1A0E;
+  --font-display: "Libre Baskerville", "GFS Baskerville", "Baskerville", Georgia, serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16.5px; line-height: 1.65; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; }
+body, h1, h2, h3, .award .yr { font-variant-numeric: lining-nums; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 56px; }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.gold { color: var(--gold); }
+.rule { width: 80px; height: 1px; background: var(--gold); }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 4px;
+  background: var(--gold); color: #0A0A0A; font-weight: 600; font-size: 14.5px; text-decoration: none;
+  letter-spacing: .02em; transition: background .2s;
+}
+.btn:hover { background: #F0C451; }
+.btn.line { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn.line:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Nav */
+nav.top { position: absolute; top: 0; left: 0; right: 0; z-index: 5; }
+nav.top .wrap { display: flex; justify-content: flex-end; align-items: center; height: 88px; }
+nav.top ul { list-style: none; display: flex; gap: 34px; }
+nav.top ul a { text-decoration: none; font-size: 12.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+nav.top ul a:hover { color: var(--ink); }
+
+/* Cover */
+.cover { position: relative; min-height: 820px; overflow: hidden; border-bottom: 1px solid var(--line); }
+.cover .portrait {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 54%;
+  background: url(photo-hero.jpg) center 25% / cover no-repeat;
+}
+.cover .portrait::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--bg) 0%, rgba(10,10,10,0) 38%), linear-gradient(0deg, var(--bg) 0%, rgba(10,10,10,0) 22%);
+}
+.cover-inner { position: relative; z-index: 2; padding-top: 200px; padding-bottom: 140px; }
+.cover h1 { font-size: clamp(64px, 10vw, 136px); line-height: .92; letter-spacing: -.02em; margin: 0 0 30px; }
+.cover h1 em { color: var(--gold); }
+.cover .lede { font-size: 19px; color: var(--muted); max-width: 440px; margin: 30px 0 36px; line-height: 1.6; }
+.cover .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Sections */
+section.chapter { padding: 110px 0; border-bottom: 1px solid var(--line); }
+.chapter-head { margin-bottom: 56px; }
+.chapter-head .num { font-family: var(--font-display); font-size: 64px; line-height: 1; color: var(--gold); }
+.chapter-head h2 { font-size: clamp(36px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -.01em; }
+
+/* About */
+.about .pull { font-family: var(--font-display); font-size: clamp(28px, 3.6vw, 44px); line-height: 1.3; max-width: 22ch; margin-bottom: 44px; }
+.about .pull em { color: var(--gold); }
+.about-cols { display: grid; grid-template-columns: 1fr 360px; gap: 56px; align-items: start; }
+.about .body p { color: var(--muted); max-width: 66ch; margin-bottom: 16px; }
+.about figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(.15); }
+.about figcaption { margin-top: 12px; }
+.about .side { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; border-top: 1px solid var(--line); padding-top: 24px; margin-top: 44px; }
+.about .side div .v { font-family: var(--font-display); font-size: 17px; margin-top: 4px; }
+
+/* Areas of interest */
+.areas-intro { margin-bottom: 32px; }
+.areas-intro p { color: var(--muted); max-width: none; }
+.acards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.acard { border: 1px solid var(--line); background: var(--surface); padding: 26px; }
+.acard h3 { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.acard ul { list-style: none; display: grid; gap: 9px; }
+.acard li { font-family: var(--font-display); font-size: 16.5px; line-height: 1.35; }
+@media (max-width: 1000px) { .acards { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .acards { grid-template-columns: 1fr; } }
+
+/* Work */
+.feature { border: 1px solid var(--line); margin-bottom: 0; }
+.feature .txt { padding: 48px; }
+.feature h3 { font-size: clamp(40px, 5vw, 64px); line-height: 1; margin: 14px 0 20px; }
+.feature p { color: var(--muted); max-width: 68ch; margin-bottom: 18px; }
+.feature ul.points { list-style: none; max-width: 72ch; margin: 0 0 30px; display: grid; gap: 8px; }
+.feature ul.points li { padding-left: 22px; position: relative; }
+.feature ul.points li::before { content: ""; position: absolute; left: 0; top: .8em; width: 12px; height: 1px; background: var(--gold); }
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.tags li { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); border: 1px solid #3A3018; padding: 5px 10px; }
+
+.entries { list-style: none; }
+.entry { display: grid; grid-template-columns: 220px 1fr 180px; gap: 40px; padding: 40px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.entry:last-child { border-bottom: 0; }
+.entry h3 { font-size: 30px; line-height: 1.15; margin-bottom: 12px; }
+.entry p { color: var(--muted); max-width: 60ch; margin-bottom: 16px; }
+.entry .tags { margin-bottom: 0; }
+.entry .go { justify-self: end; font-size: 14px; font-weight: 600; text-decoration: none; color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 2px; white-space: nowrap; }
+.entry .go:hover { color: var(--ink); border-color: var(--ink); }
+
+/* Skills */
+.skill-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid var(--line); padding-top: 32px; }
+.skill-tags li { border: 1px solid var(--line); padding: 8px 16px; font-size: 14.5px; color: var(--ink); border-radius: 999px; }
+
+/* Experience */
+.roles { list-style: none; }
+.role { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding: 34px 0; border-bottom: 1px solid var(--line); }
+.role:first-child { padding-top: 0; }
+.role:last-child { border-bottom: 0; }
+.role h3 { font-size: 26px; margin-bottom: 4px; }
+.role .org { color: var(--gold); font-weight: 500; margin-bottom: 10px; }
+.role p { color: var(--muted); max-width: 62ch; }
+.awards-list .role .org { margin-bottom: 0; }
+
+/* Awards */
+
+/* Contact */
+.contact-sec { border-bottom: 0; }
+.contact-c { text-align: center; }
+.contact-c h2 { font-size: clamp(36px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -.01em; margin-bottom: 20px; }
+.contact-intro { color: var(--muted); max-width: 56ch; margin: 0 auto 34px; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+.contact-email { margin-top: 26px; color: var(--muted); font-size: 14.5px; }
+footer .wrap { display: flex; justify-content: space-between; padding-top: 30px; padding-bottom: 40px; gap: 16px; flex-wrap: wrap; }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .wrap { padding: 0 32px; }
+  .about-cols { grid-template-columns: 1fr 300px; gap: 40px; }
+  .entry, .role { grid-template-columns: 140px 1fr; }
+  .entry .go { grid-column: 2; justify-self: start; }
+}
+@media (max-width: 760px) {
+  nav.top ul { display: none; }
+  .cover { min-height: 0; }
+  .cover .portrait { position: relative; width: 100%; height: 520px; }
+  .cover .portrait::after { background: linear-gradient(0deg, var(--bg) 0%, rgba(10,10,10,0) 45%); }
+  .cover-inner { padding-top: 0; margin-top: -120px; padding-bottom: 40px; }
+      section.chapter { padding: 72px 0; }
+  .entry, .role, .about-cols { grid-template-columns: 1fr; gap: 14px; }
+  .about-cols figure { max-width: 360px; }
+  .chapter-head { margin-bottom: 36px; }
+  .chapter-head .num { font-size: 44px; }
+  .about .side { grid-template-columns: 1fr 1fr; }
+  .entry .go { grid-column: 1; }
+  .feature { grid-template-columns: 1fr; }
+  .feature .txt,               }
+@media (max-width: 420px) {
+  .wrap { padding: 0 20px; }
+}
+/* Certificates */
+.cert { justify-self: end; font-size: 13.5px; font-weight: 600; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 1px; white-space: nowrap; cursor: pointer; }
+.cert:hover { color: var(--ink); border-color: var(--ink); }
+.role .cert { display: inline-block; margin-top: 12px; }
+dialog.viewer { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 0; max-width: min(92vw, 760px); width: 100%; }
+dialog.viewer::backdrop { background: rgba(0,0,0,.82); }
+.viewer .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.viewer .bar span { font-family: var(--font-display); font-size: 16px; }
+.viewer button { background: none; border: 1px solid var(--line); color: var(--ink); font: inherit; font-size: 14px; padding: 6px 14px; cursor: pointer; }
+.viewer button:hover, .viewer button:focus-visible { border-color: var(--gold); color: var(--gold); outline: none; }
+.viewer img { width: 100%; height: auto; max-height: 80vh; object-fit: contain; background: #fff; }
+
+/* Experience timeline */
+#experience .roles { position: relative; border-left: 1px solid var(--line); margin-left: 6px; padding-left: 36px; }
+#experience .role { display: block; border-bottom: 0; padding: 0 0 40px; position: relative; }
+#experience .role:last-child { padding-bottom: 8px; }
+#experience .role::before { content: ""; position: absolute; left: -42px; top: 6px; width: 11px; height: 11px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px var(--bg); }
+#experience .role .mono { color: var(--gold); margin-bottom: 8px; }
+
+/* Awards cards */
+#awards .roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+#awards .role { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 26px 24px; margin: 0; }
+#awards .role:first-child { padding-top: 26px; }
+#awards .role > div:last-child { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+#awards .role .mono { color: var(--gold); font-family: var(--font-display); font-size: 22px; letter-spacing: 0; }
+#awards .role h3 { font-size: 19px; margin-bottom: 0; }
+#awards .role .org { font-size: 14px; margin: 0; }
+#awards .role .cert { margin-top: 6px; }
+@media (max-width: 1000px) { #awards .roles { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { #awards .roles { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="cover" id="top">
+  <div class="portrait" role="img" aria-label="Worship Mavuso smiling in a black shirt"></div>
+  <div class="wrap cover-inner">
+    <h1>Worship<br><em>Mavuso</em></h1>
+    <div class="rule"></div>
+    <p class="lede">High-achieving BCom Information Systems graduate from the University of Fort Hare.</p>
+    <div class="actions">
+      <a class="btn" href="#work">View projects</a>
+      <a class="btn line" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="chapter" id="about">
+    <div class="wrap">
+      <div class="chapter-head"><h2>About</h2></div>
+      <div class="about">
+        <p class="pull">I enjoy finding ways <em>technology</em> can help organisations work better.</p>
+        <div class="about-cols">
+        <div class="body">
+          <p>I'm a BCom Information Systems graduate from the University of Fort Hare, skilled in applying technology to solve business challenges. I'm interested in understanding how organisations work and finding ways technology can make them more efficient.</p>
+          <p>I kept an academic average above 75% throughout my degree and received top-student awards in Computer Literacy and Databases. In 2025, I achieved the second-highest results in my department, and I am expecting to graduate Cum Laude in May 2027.</p>
+          <p>My academic projects include the Forte Auto Repair &amp; Parts Centre Information System, where I led an eight-member team as project manager to design a digital system for a paper-based workshop. I also helped design and build the SRC Student Safety Management System, which improved incident reporting on campus; the Bantu Community Service web platform, which connects rural residents with local service providers; and Digit Detective, a mobile game built in C# and .NET MAUI. In my own time, I built Sovereign 10, a real-time strategy game with AI opponents, which is live online.</p>
+          <p>Since 2024, I've tutored Computer Literacy, Databases, Fundamentals of Information Systems and Essentials of IT. The role has strengthened my communication skills, taught me to work with people from different backgrounds, and given me responsibility for others' progress, all of which I'll bring into any team.</p>
+          <p>I'm looking for graduate and internship opportunities that give me exposure to a professional environment and hands-on experience, while allowing me to add real value to a team.</p>
+        </div>
+        <figure>
+          <img src="photo-about.jpg" alt="Portrait of Worship Mavuso" width="640" height="800" loading="lazy">
+          <figcaption class="mono">Worship Mavuso, 2026</figcaption>
+        </figure>
+        </div>
+        <div class="side">
+          <div><div class="mono">Qualification</div><div class="v">BCom Information Systems</div></div>
+          <div><div class="mono">University</div><div class="v">University of Fort Hare</div></div>
+          <div><div class="mono">Graduation</div><div class="v">May 2027</div></div>
+          <div><div class="mono">Languages</div><div class="v">English, Swati</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="interests">
+    <div class="wrap">
+      <div class="chapter-head"><h2>Areas of interest</h2></div>
+      <div class="areas-intro">
+        <p>These are the fields that my Information Systems degree prepared me for, and the areas I see myself growing into.</p>
+        
+      </div>
+      <div class="acards">
+          <div class="acard"><h3>Business &amp; Analysis</h3><ul><li>Business Analysis</li><li>Systems Analysis &amp; Design</li><li>Business Process Improvement &amp; Automation</li><li>Digital Transformation</li><li>IT Consulting</li><li>ERP Systems</li></ul></div>
+          <div class="acard"><h3>Development</h3><ul><li>Software &amp; Application Development</li><li>Web Development</li><li>Mobile App Development</li><li>Software Testing &amp; Quality Assurance</li></ul></div>
+          <div class="acard"><h3>Data</h3><ul><li>Data Analysis</li><li>Business Intelligence</li><li>Database Design</li></ul></div>
+          <div class="acard"><h3>Management</h3><ul><li>IT Project Management</li><li>Agile &amp; Scrum</li><li>Product Management</li></ul></div>
+          <div class="acard"><h3>Infrastructure &amp; Security</h3><ul><li>Cybersecurity</li><li>Cloud Computing</li><li>Network &amp; Systems Administration</li><li>IT Support &amp; Service Desk</li></ul></div>
+          <div class="acard"><h3>Governance</h3><ul><li>IT Audit, Risk &amp; Compliance</li></ul></div>
+          <div class="acard"><h3>Design &amp; People</h3><ul><li>UX &amp; UI Design</li><li>IT Training &amp; User Support</li></ul></div>
+        </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="work">
+    <div class="wrap">
+      <div class="chapter-head"><h2>Projects</h2></div>
+
+      <article class="feature" id="sovereign">
+        <div class="txt">
+          <div class="mono gold">01 — Personal project · 2026</div>
+          <h3>Sovereign 10</h3>
+          <p>A real-time strategy game inspired by Risk, where you lead a real country against nine AI nations whose army sizes are based on real 2026 population data.</p>
+          <ul class="points">
+            <li>Each AI opponent has its own personality, such as aggressive, defensive or opportunistic, works out the odds before every battle, and explains its decisions in plain language.</li>
+            <li>The Google Gemini API writes live battle commentary and an end-of-war newspaper report, and anyone with a link can watch a game live.</li>
+            <li>Secured with password hashing and server-side checks on every move, backed by 180 automated tests and deployed on Render.</li>
+          </ul>
+          <a class="btn" href="https://sovereign10.onrender.com">Play it live ↗</a>
+        </div>
+      </article>
+
+      <ol class="entries">
+        <li class="entry" id="forte">
+          <div class="mono">02 · Project Manager · 2026</div>
+          <div>
+            <h3>Forte Auto Repair &amp; Parts Centre</h3>
+            <p>A digital information system for a workshop that ran entirely on paper and was losing job cards, double-booking customers and not tracking spare parts. I led an eight-member team through stakeholder analysis, user personas, process mapping and requirements gathering. Together we designed a system covering vehicle check-in, mechanic scheduling, inventory, invoicing and management reports.</p>
+          </div>
+          <a class="go" href="https://forte-auto-repair.onrender.com/">View it live ↗</a>
+        </li>
+        <li class="entry" id="digit">
+          <div class="mono">03 · Developer · 2026</div>
+          <div>
+            <h3>Digit Detective</h3>
+            <p>A code-breaking mobile game where players work out a secret three-digit number using &ldquo;hit&rdquo; and &ldquo;match&rdquo; clues. I built the game logic, timers and event handling, and designed a friendly interface with extra features that went beyond what the course required.</p>
+          </div>
+          <span></span>
+        </li>
+        <li class="entry">
+          <div class="mono">04 · Developer · 2026</div>
+          <div>
+            <h3>Bantu Community Service</h3>
+            <p>A web platform connecting rural residents with verified local service providers. I helped develop it, with a focus on making services easy to find and use, accessible to everyone, and a source of income for local providers.</p>
+          </div>
+          <span></span>
+        </li>
+        <li class="entry">
+          <div class="mono">05 · Project Manager · 2025</div>
+          <div>
+            <h3>SRC Student Safety Management System</h3>
+            <p>A system designed to improve how incidents are reported on campus and how students, the SRC and campus security communicate. As project manager, I handled planning, task allocation and communication with stakeholders to keep the team on track.</p>
+          </div>
+          <span></span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="chapter" id="skills">
+    <div class="wrap">
+      <div class="chapter-head"><h2>Skills</h2></div>
+      <ul class="skill-tags"><li>C#</li><li>ASP.NET</li><li>.NET MAUI</li><li>XAML</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Visual Basic</li><li>Web, mobile &amp; application development</li><li>API integration</li><li>Systems analysis &amp; design</li><li>Requirements gathering</li><li>Business process mapping</li><li>Business analysis</li><li>UML</li><li>Technical documentation</li><li>SQL</li><li>Microsoft SQL Server</li><li>DBMS</li><li>Database design</li><li>Data analysis</li><li>Agile &amp; Waterfall</li><li>Planning</li><li>Stakeholder communication</li><li>UX &amp; UI design</li><li>Software testing</li><li>Unit testing (xUnit)</li><li>Visual Studio</li><li>GitHub</li><li>Microsoft Office Suite</li><li>Leadership</li><li>Communication</li><li>Public speaking</li><li>Problem-solving</li><li>Analytical skills</li><li>Attention to detail</li><li>Teamwork</li><li>Time management</li></ul>
+    </div>
+  </section>
+
+  <section class="chapter" id="experience">
+    <div class="wrap">
+      <div class="chapter-head"><h2>Experience &amp; leadership</h2></div>
+      <ol class="roles">
+        <li class="role">
+          <div class="mono">2024 — 2026</div>
+          <div><h3>Information Systems Tutor</h3><div class="org">University of Fort Hare</div>
+          <p>Tutored Computer Literacy, Databases, Fundamentals of Information Systems and Essentials of IT. Ran tutorial sessions, helped students with practical work and prepared them for tests and exams.</p></div>
+        </li>
+        <li class="role">
+          <div class="mono">2024 — 2025</div>
+          <div><h3>Wellness Leader</h3><div class="org">Student Counselling Unit, University of Fort Hare</div>
+          <p>Promoted student mental health through awareness campaigns and peer support, and encouraged students to reach out to the Counselling Unit when they needed help.</p>
+          <a class="cert" href="certificates/cert-wellness-leadership.jpg" data-cert="certificates/cert-wellness-leadership.jpg" data-title="Certificate of Appreciation: Wellness Leaders Programme">View certificate</a></div>
+        </li>
+        <li class="role">
+          <div class="mono">2023 — 2024</div>
+          <div><h3>Public Relations Officer</h3><div class="org">Peer Education Programme (PESDA), University of Fort Hare</div>
+          <p>Handled communication and publicity for events and campaigns as part of the executive team, and engaged students to increase participation.</p>
+          <a class="cert" href="certificates/cert-pesda-pro.jpg" data-cert="certificates/cert-pesda-pro.jpg" data-title="Peer Education Programme: Public Relations Officer">View certificate</a></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="chapter" id="awards">
+    <div class="wrap">
+      <div class="chapter-head"><h2>Awards</h2></div>
+      <ol class="roles awards-list">
+        <li class="role">
+          <div class="mono">2025</div>
+          <div><h3>Second-Best Performing Student</h3><div class="org">Information Systems Department, University of Fort Hare</div>
+          <a class="cert" href="certificates/cert-2nd-position.jpg" data-cert="certificates/cert-2nd-position.jpg" data-title="Outstanding Academic Performance: 2nd Position">View certificate</a></div>
+        </li>
+        <li class="role">
+          <div class="mono">2025</div>
+          <div><h3>Outstanding Commitment &amp; Collaborative Leadership</h3><div class="org">Wellness Leaders Programme, Student Counselling Unit</div>
+          <a class="cert" href="certificates/cert-wellness-leadership.jpg" data-cert="certificates/cert-wellness-leadership.jpg" data-title="Certificate of Appreciation: Wellness Leaders Programme">View certificate</a></div>
+        </li>
+        <li class="role">
+          <div class="mono">2023</div>
+          <div><h3>Computer Literacy Top Achiever</h3><div class="org">University of Fort Hare</div>
+          <a class="cert" href="certificates/cert-computer-literacy.jpg" data-cert="certificates/cert-computer-literacy.jpg" data-title="Academic Award: Computer Literacy, 1st Place">View certificate</a></div>
+        </li>
+        <li class="role">
+          <div class="mono">2023</div>
+          <div><h3>Most Attendance &amp; Punctual Peer of the Year</h3><div class="org">Peer Education Programme (PESDA), University of Fort Hare</div>
+          <a class="cert" href="certificates/cert-pesda-punctual.jpg" data-cert="certificates/cert-pesda-punctual.jpg" data-title="Peer Education Programme: Most Punctual Peer Educator">View certificate</a></div>
+        </li>
+        <li class="role">
+          <div class="mono">2025</div>
+          <div><h3>Database Top Achiever</h3><div class="org">University of Fort Hare</div></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="chapter contact-sec" id="contact">
+    <div class="wrap contact-c">
+      <h2>Get in touch</h2>
+      <p class="contact-intro">I'm open to graduate programmes, internships and entry-level opportunities. Feel free to reach out by email or connect with me on LinkedIn.</p>
+      <div class="contact-actions">
+        <a class="btn" href="mailto:mavusoworship527@gmail.com">Email me</a>
+        <a class="btn line" href="https://www.linkedin.com/in/worship-mavuso">LinkedIn ↗</a>
+        <a class="btn line" href="Worship-Mavuso-CV.pdf" download>Download my CV ↓</a>
+      </div>
+      <p class="contact-email">mavusoworship527@gmail.com</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">© 2026 Worship Mavuso</span>
+    <a class="mono" href="#top">Back to top ↑</a>
+  </div>
+</footer>
+<dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+  <div class="bar"><span id="viewer-title">Certificate</span><button type="button" id="viewer-close">Close</button></div>
+  <img id="viewer-img" alt="">
+</dialog>
+<script>
+(function () {
+  var dlg = document.getElementById('viewer');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  var img = document.getElementById('viewer-img'), title = document.getElementById('viewer-title');
+  document.querySelectorAll('a.cert').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      img.src = a.getAttribute('data-cert');
+      img.alt = a.getAttribute('data-title');
+      title.textContent = a.getAttribute('data-title');
+      dlg.showModal();
+    });
+  });
+  document.getElementById('viewer-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+})();
+</script>
+</body>
+</html>
